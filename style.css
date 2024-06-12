@@ -1,0 +1,19 @@
+body {
+  background-image:url(gradient.jpg);
+}
+.gridLayout{
+    display: grid;
+    grid-template-columns: 5% 5% 5% 5% 5% 5% 5% 5% 5% 5% 5% 5% 5% 5% 5% 5% 5% 5% 5% 5%;
+    grid-auto-rows: 50px;   
+}
+#welcomeText{
+    grid-column: 10;
+    grid-row: 2;
+    font-size: 34px;
+    width: 300px;
+   padding-right: 30px;
+}
+#table1{
+  grid-row: 15;
+  grid-row: 6; 
+}

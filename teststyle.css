@@ -1,0 +1,9 @@
+.gridLayout{
+    display: grid;
+    grid-template-columns: 5% 5% 5% 5% 5% 5% 5% 5% 5% 5% 5% 5% 5% 5% 5% 5% 5% 5% 5% 5%;
+    grid-auto-rows: 50px;   
+}
+#text{
+    grid-row: 6;
+    grid-column: 10;
+}
