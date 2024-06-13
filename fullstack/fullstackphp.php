@@ -2,21 +2,19 @@
 header("location: fullstack.php?=back");
 require('database.php');
 
-$inputText = $_POST['name'];
-$inputGenre = $_POST['genre'];
-
-$sql = "INSERT INTO bands (band, genre) VALUES ('$inputText', '$inputGenre');";
-$result = mysqli_query($conn, $sql);
-$resultcheck = mysqli_num_rows($result);
-
-
 echo '<div id="text">';
-if($resultcheck > 0) {
-    while($row = mysqli_fetch_assoc($result)) {
-       echo "band added succesfully";
-    }
- }
- echo '</div>';
+if ($_SERVER['REQUEST_METHOD'] == 'POST') {
+    $inputText = mysqli_real_escape_string($conn, $_POST['name']);
+    $inputGenre = mysqli_real_escape_string($conn, $_POST['genre']);
 
+    $sql = "INSERT INTO bands (band, genre) VALUES ('$inputText', '$inputGenre');";
+
+   echo "Band added succesfully";
+    if (mysqli_query($conn, $sql)) {
+        echo "Band added successfully";
+    }
+}
+
+echo '</div>';
 exit();
 ?>
