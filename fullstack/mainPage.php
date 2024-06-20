@@ -35,21 +35,79 @@ if (isset($_POST['submit'])) {
 }
 ?>
 
+<!DOCTYPE html>
 <html>
 <head>
     <title>Main Page</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            background-color: #f4f4f4;
+            margin: 0;
+            padding: 0;
+        }
+        .container {
+            width: 80%;
+            margin: auto;
+            overflow: hidden;
+        }
+        h3 {
+            color: #333;
+        }
+        form {
+            background: #fff;
+            padding: 20px;
+            border-radius: 5px;
+            box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+        }
+        label {
+            display: block;
+            margin-bottom: 10px;
+            color: #555;
+        }
+        select, input[type="submit"] {
+            width: 100%;
+            padding: 10px;
+            margin-bottom: 10px;
+            border-radius: 5px;
+            border: 1px solid #ccc;
+            font-size: 16px;
+        }
+        input[type="submit"] {
+            background-color: #5cb85c;
+            color: #fff;
+            border: none;
+            cursor: pointer;
+        }
+        input[type="submit"]:hover {
+            background-color: #4cae4c;
+        }
+        ul {
+            list-style: none;
+            padding: 0;
+        }
+        ul li {
+            background: #fff;
+            padding: 10px;
+            margin-bottom: 5px;
+            border-radius: 5px;
+            box-shadow: 0 0 5px rgba(0, 0, 0, 0.1);
+        }
+    </style>
 </head>
 <body>
-    <h3>Our events</h3>
-    <form method="post">
-        <div>
-            <label>events</label>
-            <select name="events" id="menu">
-                <?php echo $events; ?>
-            </select>
-        </div>
-        <input type="submit" name="submit" value="Show Bands">
-    </form>
-    <?php echo $bandList; ?>
+    <div class="container">
+        <h3>Our events</h3>
+        <form method="post">
+            <div>
+                <label for="menu">Events</label>
+                <select name="events" id="menu">
+                    <?php echo $events; ?>
+                </select>
+            </div>
+            <input type="submit" name="submit" value="Show Bands">
+        </form>
+        <?php echo $bandList; ?>
+    </div>
 </body>
 </html>
