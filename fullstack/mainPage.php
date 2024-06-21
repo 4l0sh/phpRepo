@@ -40,62 +40,93 @@ if (isset($_POST['submit'])) {
 <head>
     <title>Main Page</title>
     <style>
-        body {
-            font-family: Arial, sans-serif;
-            background-color: #f4f4f4;
-            margin: 0;
-            padding: 0;
-        }
-        .container {
-            width: 80%;
-            margin: auto;
-            overflow: hidden;
-        }
-        h3 {
-            color: #333;
-        }
-        form {
-            background: #fff;
-            padding: 20px;
-            border-radius: 5px;
-            box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
-        }
-        label {
-            display: block;
-            margin-bottom: 10px;
-            color: #555;
-        }
-        select, input[type="submit"] {
-            width: 100%;
-            padding: 10px;
-            margin-bottom: 10px;
-            border-radius: 5px;
-            border: 1px solid #ccc;
-            font-size: 16px;
-        }
-        input[type="submit"] {
-            background-color: #5cb85c;
-            color: #fff;
-            border: none;
-            cursor: pointer;
-        }
-        input[type="submit"]:hover {
-            background-color: #4cae4c;
-        }
-        ul {
-            list-style: none;
-            padding: 0;
-        }
-        ul li {
-            background: #fff;
-            padding: 10px;
-            margin-bottom: 5px;
-            border-radius: 5px;
-            box-shadow: 0 0 5px rgba(0, 0, 0, 0.1);
-        }
+.gridLayout {
+  display: grid;
+  grid-template-columns: repeat(12, 1fr);
+  grid-gap: 10px;
+}
+
+.container {
+  grid-column: 2 / 12;
+  background-color: #f4f4f4;
+  padding: 20px;
+  border-radius: 5px;
+  box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+}
+
+h3 {
+  grid-column: 1 / -1;
+  color: #333;
+  margin-bottom: 10px;
+}
+
+form {
+  grid-column: 1 / -1;
+  background: #fff;
+  padding: 20px;
+  border-radius: 5px;
+  box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+}
+
+label {
+  grid-column: 1 / 3;
+  margin-bottom: 10px;
+  color: #555;
+}
+
+select, input[type="submit"] {
+  grid-column: 3 / -1;
+  width: 100%;
+  padding: 10px;
+  margin-bottom: 10px;
+  border-radius: 5px;
+  border: 1px solid #ccc;
+  font-size: 16px;
+}
+
+input[type="submit"] {
+  background-color: #5cb85c;
+  color: #fff;
+  border: none;
+  cursor: pointer;
+}
+
+input[type="submit"]:hover {
+  background-color: #4cae4c;
+}
+
+.band-list {
+  grid-column: 1 / -1;
+  list-style: none;
+  padding: 0;
+}
+
+.band-list li {
+  background: #fff;
+  padding: 10px;
+  margin-bottom: 5px;
+  border-radius: 5px;
+  box-shadow: 0 0 5px rgba(0, 0, 0, 0.1);
+}
+
+.login-btn {
+  grid-column: 1 / -1;
+  background-color: #4CAF50;
+  color: #fff;
+  padding: 10px 20px;
+  border: none;
+  border-radius: 5px;
+  cursor: pointer;
+  height: 150%;
+  width: 100%;
+}
+
+.login-btn:hover {
+  background-color: #3e8e41;
+}
     </style>
 </head>
-<body>
+<body class="gridLayout">
     <div class="container">
         <h3>Our events</h3>
         <form method="post">
@@ -107,7 +138,12 @@ if (isset($_POST['submit'])) {
             </div>
             <input type="submit" name="submit" value="Show Bands">
         </form>
-        <?php echo $bandList; ?>
+        <?php echo "<ul class='band-list'>$bandList</ul>"; ?> 
+
+        <a class="login-btn" href="http://127.0.0.1/phpRepo/fullstack/loginPage.php">
+            <i class="fas fa-lock"></i> Login
+        </a>
     </div>
+ 
 </body>
 </html>

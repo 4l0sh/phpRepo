@@ -14,13 +14,13 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST') {
         $row = mysqli_fetch_assoc($result);
         $userData = implode(', ', $row);
 
-        echo "You are logged in! Your user data is: $userData";
-        echo "You are logged in!";
-        // header("Location: eventPage.php?back");
+        // echo "You are logged in! Your user data is: $userData";
+        // echo "You are logged in!";
+        header("Location: fullstack.php?back");
         exit();
     } else {
         // User credentials are incorrect
-        echo "Invalid username or password.";
+        header("Location: loginPage.php?error=invalid_credentials");
         exit();
     }
 }
