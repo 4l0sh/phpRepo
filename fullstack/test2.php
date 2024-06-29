@@ -74,7 +74,7 @@ input[type="submit"]:hover {
     <head>
         <title>Koppel Pagina</title>
     </head>
-     <body class="gridLayout">
+    <body class="gridLayout">
         <div>
             <form action="test.php" method="post">
                 <select name="event">
@@ -83,7 +83,7 @@ input[type="submit"]:hover {
                 </select>
                 <h2>Select Bands:</h2>
                 <?php foreach($bands as $band) { ?>
-                    <input type="checkbox" name="bands[]" value="<?php echo $idbands;?>"><?php echo $idbands;?>
+                    <input type="checkbox" name="bands[]" value="<?php echo $band;?>"><?php echo $band;?>
                 <?php } ?>
                 <input type="submit" value="submit">
             </form>
@@ -92,17 +92,15 @@ input[type="submit"]:hover {
 </html>
 
 <?php
+// Check if the form has been submitted
 if ($_SERVER["REQUEST_METHOD"] == "POST") {
-
-     $selectedEvent = $_POST['event'];
+    $selectedEvent = $_POST['event'];
     $selectedBands = $_POST['bands'];
 
-    foreach($_POST['bands'] as $band) {
-      echo $band;
-         $insertQuery = "INSERT INTO bands_has_events (idbands, idevents, band, naam) VALUES ('$idbands','$idevents','$band', '$selectedEvent')";
-         mysqli_query($conn, $insertQuery);
+    foreach($selectedBands as $band) {
+        // Insert the selected band and event into the table
+        $insertQuery = "INSERT INTO bands_has_events (idbands, idevents, band, naam) VALUES ('$band', '$selectedEvent')";
+        mysqli_query($conn, $insertQuery);
     }
 }
-
-// $test = "select idband from bands where band = '$band'";
 ?>
