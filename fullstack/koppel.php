@@ -6,13 +6,10 @@ $eventquery = "select idevents, naam from events;";
 $eventresult = mysqli_query($conn, $eventquery);
 
 $eventOptions = "";
+$evids = array();
 while($row = mysqli_fetch_assoc($eventresult)) {
-    $eventOptions.= '<option value="'. $row['naam']. '">'. $row['naam']. '</option>';
-    $evids[$row['idevents']] = $row['idevents'];
-    while($row = mysqli_fetch_assoc($evids)) {
-        $evid[] = $row['idevents'];
-        echo $evid;
-    }
+    $eventOptions .= '<option value="'. $row['naam']. '">'. $row['naam']. '</option>';
+    $evids[$row['naam']] = $row['idevents'];
 }
 
 // Query to retrieve bands
@@ -27,57 +24,58 @@ while($row = mysqli_fetch_assoc($bandresult)) {
 }
 
 ?>
-<!-- <style>
-  body {
-  background-color: lightblue;
-  font-family: sans-serif;
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  min-height: 100vh;
-}
 
-.gridLayout {
-  background-color: white;
-  padding: 30px;
-  border-radius: 10px;
-  box-shadow: 0 0 10px rgba(0, 0, 0, 0.2);
-}
-
-h1 {
-  font-size: 2em;
-  margin-bottom: 20px;
-}
-
-h2 {
-  font-size: 1.5em;
-  margin-bottom: 10px;
-}
-
-select,
-input[type="checkbox"],
-input[type="submit"] {
-  margin-bottom: 10px;
-  padding: 8px;
-  border-radius: 5px;
-  border: 1px solid #ccc;
-  font-size: 1em;
-}
-
-input[type="submit"] {
-  background-color: #4CAF50;
-  color: white;
-  border: none;
-  cursor: pointer;
-}
-
-input[type="submit"]:hover {
-  background-color: #45a049;
-} -->
-</style>
 <html>
     <head>
         <title>Koppel Pagina</title>
+        <style>
+            body {
+                background-color: lightblue;
+                font-family: sans-serif;
+                display: flex;
+                justify-content: center;
+                align-items: center;
+                min-height: 100vh;
+            }
+
+            .gridLayout {
+                background-color: white;
+                padding: 30px;
+                border-radius: 10px;
+                box-shadow: 0 0 10px rgba(0, 0, 0, 0.2);
+            }
+
+            h1 {
+                font-size: 2em;
+                margin-bottom: 20px;
+            }
+
+            h2 {
+                font-size: 1.5em;
+                margin-bottom: 10px;
+            }
+
+            select,
+            input[type="checkbox"],
+            input[type="submit"] {
+                margin-bottom: 10px;
+                padding: 8px;
+                border-radius: 5px;
+                border: 1px solid #ccc;
+                font-size: 1em;
+            }
+
+            input[type="submit"] {
+                background-color: #4CAF50;
+                color: white;
+                border: none;
+                cursor: pointer;
+            }
+
+            input[type="submit"]:hover {
+                background-color: #45a049;
+            }
+        </style>
     </head>
     <body class="gridLayout">
         <div>
@@ -103,8 +101,12 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
     $selectedBands = $_POST['bands'];
 
     foreach($selectedBands as $band) {
+        // Get the IDs from the arrays
+        $eventId = $evids[$selectedEvent];
+        $bandId = $ids[$band];
+
         // Insert the selected band and event into the table
-        $insertQuery = "INSERT INTO bands_has_events (idbands, idevents, band, naam) VALUES ('$ids','$evids' ,'$band', '$selectedEvent')";
+        $insertQuery = "INSERT INTO bands_has_events (idbands, idevents, band, naam) VALUES ('$bandId', '$eventId', '$bands','$selectedEvent')";
         mysqli_query($conn, $insertQuery);
     }
 }
