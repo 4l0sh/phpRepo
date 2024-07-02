@@ -21,6 +21,9 @@ $ids = array();
 while($row = mysqli_fetch_assoc($bandresult)) {
     $bands[] = $row['band'];
     $ids[$row['band']] = $row['idbands'];
+    // foreach ($evids as $key => $value) {
+    //     echo "$key => $value<br>";
+    // }
 }
 
 ?>
@@ -28,7 +31,7 @@ while($row = mysqli_fetch_assoc($bandresult)) {
 <html>
     <head>
         <title>Koppel Pagina</title>
-        <style>
+        <!-- <style>
             body {
                 background-color: lightblue;
                 font-family: sans-serif;
@@ -74,7 +77,7 @@ while($row = mysqli_fetch_assoc($bandresult)) {
 
             input[type="submit"]:hover {
                 background-color: #45a049;
-            }
+            } -->
         </style>
     </head>
     <body class="gridLayout">

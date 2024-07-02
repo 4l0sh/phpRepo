@@ -76,7 +76,7 @@ input[type="submit"]:hover {
     </head>
     <body class="gridLayout">
         <div>
-            <form action="test.php" method="post">
+            <form action="test2.php" method="post">
                 <select name="event">
                     <option value="" disabled selected>Select an event</option>
                     <?php echo $eventOptions;?>
@@ -94,13 +94,33 @@ input[type="submit"]:hover {
 <?php
 // Check if the form has been submitted
 if ($_SERVER["REQUEST_METHOD"] == "POST") {
-    $selectedEvent = $_POST['event'];
-    $selectedBands = $_POST['bands'];
+  $selectedEvent = mysqli_real_escape_string($conn, $_POST['event']);
+  $selectedBands = $_POST['bands'];
 
-    foreach($selectedBands as $band) {
-        // Insert the selected band and event into the table
-        $insertQuery = "INSERT INTO bands_has_events (idbands, idevents, band, naam) VALUES ('$band', '$selectedEvent')";
-        mysqli_query($conn, $insertQuery);
-    }
+  foreach($selectedBands as $band) {
+      $band = mysqli_real_escape_string($conn, $band);
+
+      $sql = "SELECT idevents FROM events WHERE naam = '$selectedEvent'";
+      $result = mysqli_query($conn, $sql);
+      $row = mysqli_fetch_assoc($result);
+      var_dump($row);
+
+      // $insertquery= "INSERT INTO  bands_has_events (idbands, idevents) values ("","")";
+
+      if ($result) {
+          $row = mysqli_fetch_assoc($result);
+          $eventID = $row['idevents'];
+
+          // Second query to get the bands
+          $joinquery = "SELECT naam, bands.band 
+                        FROM bands 
+                        INNER JOIN bands_has_events 
+                        ON bands.idbands = bands_has_events.idbands 
+                        WHERE idevents = '$eventID'";
+          mysqli_query($conn, $joinquery);
+      } else {
+          echo "Error: " . mysqli_error($conn);
+      }
+  }
 }
 ?>
