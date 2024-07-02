@@ -44,7 +44,7 @@ function redirect() {
         <h1 class="welcomeText"> Add here your band information.</h1>
         <h2 class="title">Cafe</h2>
     <form id="form" action="fullstackphp.php" method="POST">
-                <input id="nameInput" required type="text"  name="name" placeholder="Event Name here">
+                <input id="nameInput" required type="text"  name="name" placeholder="Band Name here">
                   <select id="genreInput" required name="genre">
                    <option value="" disabled selected>Select a genre</option>
                     <option value="Rock">Rock</option>

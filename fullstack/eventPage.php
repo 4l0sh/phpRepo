@@ -6,7 +6,65 @@ require('database.php')
 <html>
     <head>
         <title>Events</title>
-        <link rel="stylesheet" href="fullstack.css">
+        <!-- <link rel="stylesheet" href="fullstack.css"> -->
+        <style>
+            /* Add some modern styling to make the page look decent */
+            body {
+                font-family: Open Sans, sans-serif;
+                background-image: linear-gradient(to bottom, #808080, #333);
+                background-repeat: no-repeat;
+                height: 100vh;
+                margin: 0;
+                display: flex;
+                flex-direction: column;
+                align-items: center;
+                padding: 20px;
+            }
+           .container {
+                max-width: 400px;
+                margin: 40px auto;
+                padding: 20px;
+                background-color: #fff;
+                border: 1px solid #ddd;
+                box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+                border-radius: 10px;
+            }
+           .welcomeText {
+                font-size: 24px;
+                font-weight: bold;
+                color: #333;
+                margin-bottom: 20px;
+            }
+           .title {
+                font-size: 18px;
+                font-weight: bold;
+                color: #666;
+                margin-bottom: 10px;
+            }
+            #bndForm {
+                display: flex;
+                flex-direction: column;
+                gap: 10px;
+            }
+            #bndForm input[type="text"], #bndForm input[type="date"], #bndForm input[type="number"] {
+                padding: 10px;
+                border: 1px solid #ccc;
+                border-radius: 5px;
+                width: 100%;
+                font-size: 16px;
+            }
+            #bndForm input[type="submit"] {
+                background-color: #4CAF50;
+                color: #fff;
+                padding: 10px 20px;
+                border: none;
+                border-radius: 5px;
+                cursor: pointer;
+            }
+            #bndForm input[type="submit"]:hover {
+                background-color: #3e8e41;
+            }
+        </style>
     </head>
     <body class="gridlayout">
         <h1 class="welcomeText">Please enter here your information.</h1>
