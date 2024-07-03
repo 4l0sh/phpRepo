@@ -17,88 +17,11 @@ $conn->close();
 <head>
     <title>Band Event</title>
 </head>
-
-<style>
-    /* Add some basic styling to make the page look modern */
-    body {
-        font-family: Arial, sans-serif;
-        margin: 0;
-        padding: 0;
-    }
-    
-    header {
-        background-color: #333;
-        color: #fff;
-        padding: 1em;
-        text-align: center;
-    }
-    
-    header h1 {
-        margin: 0;
-    }
-    
-    button {
-        background-color: #4CAF50;
-        color: #fff;
-        border: none;
-        padding: 10px 20px;
-        font-size: 16px;
-        cursor: pointer;
-    }
-    
-    button:hover {
-        background-color: #3e8e41;
-    }
-    
-    form {
-        max-width: 500px;
-        margin: 40px auto;
-        padding: 20px;
-        background-color: #f9f9f9;
-        border: 1px solid #ccc;
-        box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
-    }
-    
-    label {
-        display: block;
-        margin-bottom: 10px;
-    }
-    
-    select, input[type="checkbox"] {
-        width: 100%;
-        padding: 10px;
-        margin-bottom: 20px;
-        border: 1px solid #ccc;
-    }
-    
-    input[type="checkbox"] {
-        margin: 0 10px 0 0; /* Add some margin to the left of the checkbox */
-    }
-    
-    input[type="submit"] {
-        background-color: #4CAF50;
-        color: #fff;
-        padding: 10px 20px;
-        border: none;
-        cursor: pointer;
-    }
-    
-    input[type="submit"]:hover {
-        background-color: #3e8e41;
-    }
-    
-    #bands {
-        margin-top: 20px;
-    }
-    
-    #bands h3 {
-        margin-top: 0;
-    }
-</style>
 <body>
     <header>
         <h1>CAFE</h1>
         <a href="loginPage.php"><button>Login</button></a>
+        <link rel="stylesheet" href="fullstack.css">
     </header>
     <form action="bandEventPagephp.php" method="POST">
         <label for="events">Select Event:</label>
@@ -128,6 +51,8 @@ $conn->close();
         </div>
         
         <input type="submit" value="Submit">
+
+        <a href="mainPage.php"><button id="mpage">Main Page</button></a>
     </form>
 </body>
 </html>

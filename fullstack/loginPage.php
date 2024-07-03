@@ -2,7 +2,8 @@
 <html>
 <head>
     <title>Login Page</title>
-    <style>
+    <link rel="stylesheet" href="fullstack.css">
+    <!-- <style>
         body {
             font-family: Open Sans, sans-serif;
             background-color: #f7f7f7;
@@ -73,7 +74,7 @@
         .form-input:focus {
             box-shadow: 0 0 10px rgba(0, 0, 0, 0.2);
         }
-    </style>
+    </style> -->
 </head>
 <body>
     <div class="container">

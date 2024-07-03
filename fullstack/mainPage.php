@@ -18,6 +18,77 @@ while ($row = $result->fetch_assoc()) {
 <head>
     <title>Main Page</title>
     <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+    <!-- <link rel="stylesheet" href="fullstack.css"> -->
+    <style>
+    /* Reset and basic styles */
+body, html {
+    background-color: #1e1e1e;
+    color: #ffffff;
+    font-family: Arial, sans-serif;
+    margin: 0;
+    padding: 0;
+}
+
+.gridlayout {
+    display: grid;
+    grid-template-rows: auto 1fr;
+    min-height: 100vh;
+}
+
+.welcomeText, .title {
+    text-align: center;
+}
+
+.container {
+    padding: 20px;
+}
+
+form {
+    max-width: 500px;
+    margin: 0 auto;
+    padding: 20px;
+    background-color: #333333;
+    color: #ffffff;
+    border-radius: 5px;
+}
+
+label {
+    color: #ffffff;
+    display: block;
+    margin-bottom: 10px;
+}
+
+input[type="text"], input[type="number"], input[type="date"] {
+    width: calc(100% - 40px);
+    padding: 10px;
+    margin-bottom: 10px;
+    background-color: #555555;
+    color: #ffffff;
+    border: none;
+    border-radius: 5px;
+}
+
+input[type="submit"] {
+    background-color: #8a2be2; /* Purple-ish color */
+    color: #ffffff;
+    border: none;
+    padding: 10px 20px;
+    margin-top: 10px;
+    cursor: pointer;
+    border-radius: 5px;
+    display: inline-block;
+    transition: background-color 0.3s ease;
+}
+
+input[type="submit"]:hover {
+    background-color: #6a1a9a; /* Darker hover color */
+}
+
+/* Specific styles for different sections/pages */
+
+/* Additional specific styles can be added here as needed */
+
+</style>
 </head>
 <body class="gridLayout">
     <header>
@@ -59,101 +130,3 @@ while ($row = $result->fetch_assoc()) {
 </body>
 </html>
 
-<style>
-body {
-    font-family: 'Open Sans', sans-serif;
-    margin: 0;
-    padding: 0;
-    background-color: #f9f9f9;
-}
-
-.gridLayout {
-    display: grid;
-    grid-template-rows: 100px 1fr;
-    height: 100vh;
-}
-
-header {
-    background-color: #333;
-    color: #fff;
-    padding: 20px;
-    text-align: center;
-    display: flex;
-    justify-content: space-between;
-    align-items: center;
-}
-
-header h1 {
-    margin: 0;
-    font-size: 24px;
-}
-
-header button {
-    background-color: #444;
-    color: #fff;
-    border: none;
-    padding: 10px 20px;
-    font-size: 16px;
-    cursor: pointer;
-    border-radius: 5px;
-}
-
-header button:hover {
-    background-color: #555;
-}
-
-.container {
-    padding: 20px;
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-}
-
-h3 {
-    margin-top: 0;
-    font-size: 18px;
-}
-
-#eventForm {
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    margin-top: 20px;
-}
-
-#eventForm label {
-    margin-bottom: 10px;
-    font-size: 16px;
-}
-
-#eventForm select {
-    padding: 10px;
-    font-size: 16px;
-    margin-bottom: 20px;
-    border: 1px solid #ccc;
-    border-radius: 5px;
-}
-
-#showBandsBtn {
-    background-color: #4CAF50;
-    color: #fff;
-    border: none;
-    padding: 10px 20px;
-    font-size: 16px;
-    cursor: pointer;
-    border-radius: 5px;
-}
-
-#showBandsBtn:hover {
-    background-color: #3e8e41;
-}
-
-#bandList {
-    margin-top: 20px;
-    padding: 20px;
-    background-color: #fff;
-    border: 1px solid #ccc;
-    border-radius: 5px;
-    box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
-}
-</style>

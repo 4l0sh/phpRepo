@@ -8,74 +8,88 @@ require('database.php')
         <title>Events</title>
         <!-- <link rel="stylesheet" href="fullstack.css"> -->
         <style>
-            /* Add some modern styling to make the page look decent */
-            body {
-                font-family: Open Sans, sans-serif;
-                background-image: linear-gradient(to bottom, #808080, #333);
-                background-repeat: no-repeat;
-                height: 100vh;
-                margin: 0;
-                display: flex;
-                flex-direction: column;
-                align-items: center;
-                padding: 20px;
-            }
-           .container {
-                max-width: 400px;
-                margin: 40px auto;
-                padding: 20px;
-                background-color: #fff;
-                border: 1px solid #ddd;
-                box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
-                border-radius: 10px;
-            }
-           .welcomeText {
-                font-size: 24px;
-                font-weight: bold;
-                color: #333;
-                margin-bottom: 20px;
-            }
-           .title {
-                font-size: 18px;
-                font-weight: bold;
-                color: #666;
-                margin-bottom: 10px;
-            }
-            #bndForm {
-                display: flex;
-                flex-direction: column;
-                gap: 10px;
-            }
-            #bndForm input[type="text"], #bndForm input[type="date"], #bndForm input[type="number"] {
-                padding: 10px;
-                border: 1px solid #ccc;
-                border-radius: 5px;
-                width: 100%;
-                font-size: 16px;
-            }
-            #bndForm input[type="submit"] {
-                background-color: #4CAF50;
-                color: #fff;
-                padding: 10px 20px;
-                border: none;
-                border-radius: 5px;
-                cursor: pointer;
-            }
-            #bndForm input[type="submit"]:hover {
-                background-color: #3e8e41;
-            }
-        </style>
+    /* Reset and basic styles */
+body, html {
+    background-color: #1e1e1e;
+    color: #ffffff;
+    font-family: Arial, sans-serif;
+    margin: 0;
+    padding: 0;
+}
+
+.gridlayout {
+    display: grid;
+    grid-template-rows: auto 1fr;
+    min-height: 100vh;
+}
+
+.welcomeText, .title {
+    text-align: center;
+}
+
+.container {
+    padding: 20px;
+}
+
+form {
+    max-width: 500px;
+    margin: 300px auto; 
+    padding: 20px;
+    background-color: #333333;
+    color: #ffffff;
+    border-radius: 5px;
+}
+
+label {
+    color: #ffffff;
+    display: block;
+    margin-bottom: 10px;
+}
+
+input[type="text"], input[type="number"], input[type="date"] {
+    width: calc(100% - 40px);
+    padding: 10px;
+    margin-bottom: 10px;
+    background-color: #555555;
+    color: #ffffff;
+    border: none;
+    border-radius: 5px;
+}
+
+input[type="submit"] {
+    background-color: #8a2be2; /* Purple-ish color */
+    color: #ffffff;
+    border: none;
+    padding: 10px 20px;
+    margin-top: 10px;
+    cursor: pointer;
+    border-radius: 5px;
+    display: inline-block;
+    transition: background-color 0.3s ease;
+}
+
+input[type="submit"]:hover {
+    background-color: #6a1a9a; /* Darker hover color */
+}
+
+/* Specific styles for different sections/pages */
+
+/* Additional specific styles can be added here as needed */
+
+</style>
     </head>
     <body class="gridlayout">
         <h1 class="welcomeText">Please enter here your information.</h1>
         <h2 class="title">Cafe</h2>
 
         <form id="bndForm" action="eventPagephp.php" method="POST">
-            <input id="bndInput" required type="text"  name="bndname" placeholder="Band name here">
+            <input id="bndInput" required type="text"  name="bndname" placeholder="Event name here">
             <input type="date" id="eventDate" required name="date">
             <input id="eventPrice" required type="number" name="amount" placeholder="€19,99">
             <input id="eventSubmit" type="submit" value="submit">
         </form>
+
+        <a href="mainPage.php">Main Page</a>
 
     </body>
 </html>
