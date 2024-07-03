@@ -1,8 +1,8 @@
-/* Reset and basic styles */
-body, html {
-    background-color: #1e1e1e;
-    color: #ffffff;
-    font-family: Arial, sans-serif;
+/* Dark Mode CSS */
+body {
+    background-color: #121212;
+    color: #e0e0e0;
+    font-family: 'Arial', sans-serif;
     margin: 0;
     padding: 0;
 }
@@ -10,80 +10,198 @@ body, html {
 .gridLayout {
     display: grid;
     grid-template-rows: auto 1fr;
-    min-height: 100vh;
+    gap: 20px;
+    padding: 20px;
 }
 
 header {
-    background-color: #333333;
-    color: #ffffff;
-    padding: 20px;
+    background-color: #1e1e1e;
+    padding: 10px;
     text-align: center;
+    border-bottom: 1px solid #333;
 }
 
 header h1 {
     margin: 0;
-}
-
-.container {
-    padding: 20px;
-}
-
-h1, h2, h3 {
     color: #ffffff;
 }
 
-form {
-    padding: 20px;
-    background-color: #333333;
-    color: #ffffff;
-    border-radius: 5px;
-}
-
-label {
-    color: #ffffff;
-}
-
-/* Button and link styling */
-button, input[type=submit], input[type=button], .btn-purple, a.btn-purple, #mpage {
-    background-color: #8a2be2; /* Purple-ish color */
+header a button {
+    background-color: #3f51b5;
     color: #ffffff;
     border: none;
     padding: 10px 20px;
-    margin-right: 10px;
     cursor: pointer;
     border-radius: 5px;
-    text-decoration: none; /* Remove underline for links */
-    display: inline-block; /* Ensures link behaves like a button */
-    transition: background-color 0.3s ease;
-}
-
-button:hover, input[type=submit]:hover, input[type=button]:hover, .btn-purple:hover, a.btn-purple:hover, #mpage:hover {
-    background-color: #6a1a9a; /* Darker hover color */
-}
-
-/* Dropdown menu styling */
-select {
-    appearance: none; /* Removes default styling */
-    -webkit-appearance: none;
-    -moz-appearance: none;
-    background-color: #333333;
-    color: #ffffff;
-    border: 1px solid #555555;
-    padding: 10px 20px;
     font-size: 16px;
+    max-width: 200px;
+}
+
+header a button:hover {
+    background-color: #303f9f;
+}
+
+.container {
+    max-width: 800px;
+    margin: auto;
+    padding: 20px;
+    background-color: #1e1e1e;
+    border-radius: 10px;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.5);
+}
+
+h3, h2, h1 {
+    color: #ffffff;
+}
+
+label {
+    font-weight: bold;
+    display: block;
+    margin-bottom: 5px;
+    color: #ffffff;
+}
+
+input, select, button {
+    width: 100%;
+    padding: 10px;
+    margin-bottom: 15px;
+    border-radius: 5px;
+    border: 1px solid #333;
+    background-color: #333;
+    color: #ffffff;
+    font-size: 16px;
+}
+
+input[type="submit"], button[type="button"], .submitbtn, .clearbtn {
+    background-color: #3f51b5;
+    border: none;
+    cursor: pointer;
+    font-weight: bold;
+    max-width: 200px;
+}
+
+input[type="submit"]:hover, button[type="button"]:hover, .submitbtn:hover, .clearbtn:hover {
+    background-color: #303f9f;
+}
+
+.error-msg {
+    color: #ff4444;
+    margin-top: 10px;
+}
+
+svg.icon-arrow {
+    fill: #ffffff;
+}
+
+a {
+    color: #3f51b5;
+    text-decoration: none;
+}
+
+a:hover {
+    text-decoration: underline;
+}
+
+/* Form specific styling */
+form {
+    display: flex;
+    flex-direction: column;
+}
+
+form input[type="text"], form input[type="password"], form input[type="number"], form input[type="date"] {
+    background-color: #333;
+    border: 1px solid #555;
+    color: #ffffff;
+    padding: 10px;
+    border-radius: 5px;
+    margin-bottom: 15px;
+}
+
+form label {
+    margin-top: 10px;
+    color: #ffffff;
+}
+
+form input[type="submit"], form input[type="button"] {
+    background-color: #3f51b5;
+    color: #ffffff;
+    border: none;
+    padding: 10px;
     border-radius: 5px;
     cursor: pointer;
+    max-width: 200px;
 }
 
-select:focus {
-    outline: none;
-    border-color: #8a2be2; /* Purple-ish color */
+form input[type="submit"]:hover, form input[type="button"]:hover {
+    background-color: #303f9f;
 }
 
-select:hover {
-    background-color: #444444;
+form h2 {
+    color: #ffffff;
+    text-align: center;
+    margin-bottom: 20px;
 }
 
-/* Specific styles for different sections/pages */
+#bandList {
+    margin-top: 20px;
+}
 
-/* Additional specific styles can be added here as needed */
+/* Arrow button styling */
+a svg.icon-arrow {
+    width: 20px;
+    height: 20px;
+    fill: #ffffff;
+    transition: transform 0.3s;
+}
+
+a:hover svg.icon-arrow {
+    transform: translateX(5px);
+}
+
+a .label {
+    color: #ffffff;
+    font-weight: bold;
+    text-decoration: none;
+    display: inline-block;
+    margin-right: 10px;
+}
+
+/* Checkbox styling */
+input[type="checkbox"] {
+    display: none; /* Hide the default checkbox */
+}
+
+input[type="checkbox"] + label {
+    position: relative;
+    padding-left: 30px;
+    cursor: pointer;
+    user-select: none;
+    display: inline-block;
+    color: #ffffff;
+    margin-bottom: 10px;
+}
+
+input[type="checkbox"] + label:before {
+    content: '';
+    position: absolute;
+    left: 0;
+    top: 50%;
+    transform: translateY(-50%);
+    width: 20px;
+    height: 20px;
+    border: 2px solid #3f51b5;
+    border-radius: 3px;
+    background-color: #333;
+}
+
+input[type="checkbox"]:checked + label:after {
+    content: '';
+    position: absolute;
+    left: 5px;
+    top: 50%;
+    transform: translateY(-50%);
+    width: 10px;
+    height: 10px;
+    background-color: #3f51b5;
+    border-radius: 2px;
+}
