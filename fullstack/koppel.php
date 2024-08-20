@@ -16,6 +16,7 @@ $conn->close();
 <html>
 <head>
     <title>Band Event</title>
+    <link rel="stylesheet" href="fullstack.css">
 </head>
 <body>
     <header>
@@ -56,4 +57,3 @@ $conn->close();
     </form>
 </body>
 </html>
-

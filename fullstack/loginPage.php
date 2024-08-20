@@ -13,7 +13,7 @@
             <input class="form-input" type="text" id="userName" name="userName"><br><br>
             <label class="form-label" for="password">Password:</label>
             <input class="form-input" type="password" id="password" name="pass"><br><br>
-            <input class="submit-btn" type="submit" value="Login">
+            <input id="loginbtn" type="submit" value="Login">
             <?php if (isset($errorMsg)) { echo '<div class="error-msg">'. $errorMsg. '</div>'; }?>
         </form>
     </div>
