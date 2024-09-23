@@ -3,7 +3,7 @@ session_start();
 require('database.php');
 $conn->select_db("fullstackDB");
 
-// Query to fetch events
+
 $query = "SELECT * FROM events";
 $result = $conn->query($query);
 
@@ -15,11 +15,13 @@ while ($row = $result->fetch_assoc()) {
 
 <!DOCTYPE html>
 <html>
+
 <head>
     <title>Main Page</title>
     <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
     <link rel="stylesheet" href="fullstack.css">
 </head>
+
 <body class="gridLayout">
     <header>
         <h1>CAFE</h1>
@@ -40,17 +42,17 @@ while ($row = $result->fetch_assoc()) {
     </div>
 
     <script>
-        $(document).ready(function() {
-            $('#showBandsBtn').click(function() {
+        $(document).ready(function () {
+            $('#showBandsBtn').click(function () {
                 var selectedEventId = $('#menu').val();
                 $.ajax({
                     url: 'mainPagephp.php',
                     type: 'POST',
                     data: { eventId: selectedEventId },
-                    success: function(response) {
+                    success: function (response) {
                         $('#bandList').html(response);
                     },
-                    error: function() {
+                    error: function () {
                         alert('Error retrieving bands.');
                     }
                 });
@@ -58,5 +60,5 @@ while ($row = $result->fetch_assoc()) {
         });
     </script>
 </body>
-</html>
 
+</html>

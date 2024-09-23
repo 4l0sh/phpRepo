@@ -1,7 +1,5 @@
-/* Global Styles */
 
-* {
-    box-sizing: border-box;
+* {    box-sizing: border-box;
     margin: 0;
     padding: 0;
   }
@@ -39,8 +37,7 @@
     background-color: #23527c;
   }
   
-  /* Grid Layout */
-  
+
   .gridLayout {
     display: grid;
     grid-template-columns: 1fr;
@@ -62,7 +59,7 @@
     box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
   }
   
-  /* Form Styles */
+
   
   form {
     padding: 20px;
