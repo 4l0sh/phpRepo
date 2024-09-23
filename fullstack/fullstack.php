@@ -56,7 +56,7 @@ function redirect() {
                <input class="submitbtn"  type="submit" value="submit" onclick="submitButton();">
                 <input class="clearbtn" type="button" value="clear" onclick="clearbtn();">
             </form>
-            <a href="javascript:;">
+            <!-- <a href="javascript:;">
     <svg class="icon-arrow before">
         <use xlink:href="#arrow"></use>
     </svg>
@@ -66,6 +66,7 @@ function redirect() {
     </svg>
 </a>
 
+
 <svg style="display: none;">
   <defs>
     <symbol id="arrow" viewBox="0 0 35 15">
@@ -73,7 +74,8 @@ function redirect() {
       <path d="M27.172 5L25 2.828 27.828 0 34.9 7.071l-7.07 7.071L25 11.314 27.314 9H0V5h27.172z "/>
     </symbol>
   </defs>
-</svg>
+</svg> -->
+<button onclick="redirect();">Add your event!</button>
     </body>
 </html>
 
