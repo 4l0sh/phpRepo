@@ -17,6 +17,4 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST') {
 } else {
     echo '<div id="text">Invalid request method.</div>';
 }
-
-
 ?>

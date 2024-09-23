@@ -1,28 +1,27 @@
 <?php
-require('database.php');
-// header("Location: loginPage.php?back");
+require("database.php");
 
 if ($_SERVER['REQUEST_METHOD'] == 'POST') {
-    $inputuser = mysqli_real_escape_string($conn, $_POST['userName']);
-    $inputpw = mysqli_real_escape_string($conn, $_POST['pass']);
+    $inputUser = mysqli_real_escape_string($conn, $_POST['userName']);
+    $inputPass = mysqli_real_escape_string($conn, $_POST['pass']);
 
-    $sql = "SELECT * FROM users WHERE user = '$inputuser' AND pass = '$inputpw'";
+    // Fetch the hashed password from the database
+    $sql = "SELECT pass FROM users WHERE user = '$inputUser'";
     $result = mysqli_query($conn, $sql);
 
     if (mysqli_num_rows($result) > 0) {
-        // User credentials are correct
         $row = mysqli_fetch_assoc($result);
-        $userData = implode(', ', $row);
+        $hashedPassword = $row['pass']; // This is the hashed password from the database
 
-        // echo "You are logged in! Your user data is: $userData";
-        // echo "You are logged in!";
-        header("Location: fullstack.php?back");
-        exit();
+        // Verify the password entered by the user against the hashed password
+        if (password_verify($inputPass, $hashedPassword)) {
+            header("Location: fullstack.php");
+            exit();
+        } else {
+            echo "Error: Incorrect password.";
+        }
     } else {
-        // User credentials are incorrect
-        header("Location: loginPage.php?error=invalid_credentials");
-        exit();
+        echo "Error: User not found.";
     }
 }
 ?>
-

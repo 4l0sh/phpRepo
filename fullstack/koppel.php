@@ -12,12 +12,21 @@ $result2 = $conn->query($query);
 $conn->close();
 ?>
 
+<script>
+    function redirect() {
+        var url = "http://127.0.0.1/phpRepo/fullstack/mainPage.php";
+        window.location.href = url;
+    }
+</script>
+
 <!DOCTYPE html>
 <html>
+
 <head>
     <title>Band Event</title>
     <link rel="stylesheet" href="fullstack.css">
 </head>
+
 <body>
     <header>
         <h1>CAFE</h1>
@@ -37,7 +46,7 @@ $conn->close();
             }
             ?>
         </select>
-        
+
         <div id="bands">
             <?php
             if ($result2->num_rows > 0) {
@@ -50,10 +59,13 @@ $conn->close();
             }
             ?>
         </div>
-        
+
         <input type="submit" value="Submit">
 
-        <a href="mainPage.php"><button id="mpage">Main Page</button></a>
+        <a onclick="redirect();">Main Page</a>
+
+
     </form>
 </body>
+
 </html>
